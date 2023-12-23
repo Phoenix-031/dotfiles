@@ -1,39 +1,80 @@
-* {
-    background:     #1E1F29FF;
-    background-alt: #282A36FF;
-    foreground:     #FFFFFFFF;
-    selected:       #BD93F9FF;
-    active:         #50FA7BFF;
-    urgent:         #FF5555FF;
-}
-
-* {
-    font: "JetBrains Mono Nerd Font 10";
-}
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
 
 /*****----- Configuration -----*****/
 configuration {
     show-icons:                 false;
 }
 
+* {
+    background:     #1E2127FF;
+    background-alt: #282B31FF;
+    foreground:     #FFFFFFFF;
+    selected:       #61AFEFFF;
+    active:         #98C379FF;
+    urgent:         #E06C75FF;
+}
+* {
+    font: "JetBrains Mono Nerd Font 12";
+}
+
+/*****----- Global Properties -----*****/
+* {
+    /* Resolution : 1920x1080 */
+    mainbox-spacing:             50px;
+    mainbox-margin:              0px 470px;
+    message-margin:              0px 350px;
+    message-padding:             15px;
+    message-border-radius:       100%;
+    listview-spacing:            20px;
+    element-padding:             45px 30px;
+    element-border-radius:       20px;
+
+    prompt-font:                 "JetBrains Mono Nerd Font 30";
+    textbox-font:                "JetBrains Mono Nerd Font 10";
+    element-text-font:           "feather Bold 48";
+
+    /* Gradients */
+    gradient-1:                  linear-gradient(45, #1E98FD, #06FDA5);
+    gradient-2:                  linear-gradient(0, #F971C6, #7A72EC);
+    gradient-3:                  linear-gradient(70, #FFD56F, #FF6861);
+    gradient-4:                  linear-gradient(135, #44C6FA, #3043A1);
+    gradient-5:                  linear-gradient(to left, #bdc3c7, #2c3e50);
+    gradient-6:                  linear-gradient(to right, #0F2027, #203A43, #2C5364);
+    gradient-7:                  linear-gradient(to top, #12c2e9, #c471ed, #f64f59);
+    gradient-8:                  linear-gradient(to bottom, #FF0099, #493240);
+    gradient-9:                  linear-gradient(0, #1a2a6c, #b21f1f, #fdbb2d);
+    gradient-10:                 linear-gradient(0, #283c86, #45a247);
+    gradient-11:                 linear-gradient(0, #77A1D3, #79CBCA, #E684AE);
+    gradient-12:                 linear-gradient(0, #ff6e7f, #bfe9ff);
+    gradient-13:                 linear-gradient(0, #D31027, #EA384D);
+    gradient-14:                 linear-gradient(0, #DA22FF, #9733EE);
+    gradient-15:                 linear-gradient(0, #1D976C, #93F9B9);
+    gradient-16:                 linear-gradient(0, #232526, #414345);
+    gradient-17:                 linear-gradient(0, #833ab4, #fd1d1d, #fcb045);
+    gradient-18:                 linear-gradient(0, #667db6, #0082c8, #0082c8, #667db6);
+    gradient-19:                 linear-gradient(0, #03001e, #7303c0, #ec38bc, #fdeff9);
+    gradient-20:                 linear-gradient(0, #780206, #061161);
+    
+    background-window:           var(gradient-6);
+    background-normal:           white/10%;
+    background-selected:         white/20%;
+    foreground-normal:           white;
+    foreground-selected:         white;
+}
+
 /*****----- Main Window -----*****/
 window {
-    /* properties for window widget */
     transparency:                "real";
     location:                    center;
     anchor:                      center;
-    fullscreen:                  false;
-    width:                       605px;
-    x-offset:                    0px;
-    y-offset:                    0px;
-
-    /* properties for all widgets */
-    enabled:                     true;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               4px;
-    border-color:                @selected;
+    fullscreen:                  true;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -41,83 +82,62 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     10px;
-    margin:                      0px;
-    padding:                     20px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
+    spacing:                     var(mainbox-spacing);
+    margin:                      var(mainbox-margin);
     background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview" ];
+    children:                    [ "dummy", "userimage", "inputbar", "listview", "message", "dummy" ];
+}
+
+/*****----- User -----*****/
+userimage {
+    margin:                      0px 400px;
+    border:                      2px;
+    border-radius:               100%;
+    border-color:                gray;
+    background-color:            transparent;
+    background-image:            url("~/.config/wallpaper/wall5.jpg", both);
+    position:                    "center";
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     10px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px;
-    border-radius:               0px;
-    border-color:                @selected;
     background-color:            transparent;
-    text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", dummy, "prompt"];
+    children:                    [ "dummy", "prompt", "dummy"];
 }
 
 dummy {
     background-color:            transparent;
 }
 
-textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    str:                         "";
-    padding:                     10px 14px;
-    border-radius:               4px;
-    background-color:            @urgent;
-    text-color:                  @background;
-}
 prompt {
     enabled:                     true;
-    padding:                     10px;
-    border-radius:               4px;
-    background-color:            @active;
-    text-color:                  @background;
+    font:                        var(prompt-font);
+    background-color:            transparent;
+    text-color:                  var(foreground-normal);
 }
 
 /*****----- Message -----*****/
 message {
     enabled:                     true;
-    margin:                      0px;
-    padding:                     10px;
-    border:                      0px solid;
-    border-radius:               4px;
-    border-color:                @selected;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    margin:                      var(message-margin);
+    padding:                     var(message-padding);
+    border-radius:               var(message-border-radius);
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
 }
 textbox {
-    background-color:            inherit;
+    font:                        var(textbox-font);
+    background-color:            transparent;
     text-color:                  inherit;
     vertical-align:              0.5;
     horizontal-align:            0.5;
-    placeholder-color:           @foreground;
-    blink:                       true;
-    markup:                      true;
-}
-error-message {
-    padding:                     10px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background;
-    text-color:                  @foreground;
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
+    expand:                      false;
     columns:                     5;
     lines:                       1;
     cycle:                       true;
@@ -128,31 +148,22 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     10px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
+    spacing:                     var(listview-spacing);
     background-color:            transparent;
-    text-color:                  @foreground;
     cursor:                      "default";
 }
 
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     0px;
-    margin:                      0px;
-    padding:                     10px;
-    border:                      0px solid;
-    border-radius:               4px;
-    border-color:                @selected;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    padding:                     var(element-padding);
+    border-radius:               var(element-border-radius);
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
     cursor:                      pointer;
 }
 element-text {
+    font:                        var(element-text-font);
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
@@ -160,8 +171,6 @@ element-text {
     horizontal-align:            0.5;
 }
 element selected.normal {
-    border:                      0px 2px 0px 2px;
-    border-radius:               4px;
-    background-color:            var(selected);
-    text-color:                  var(background);
+    background-color:            var(background-selected);
+    text-color:                  var(foreground-selected);
 }

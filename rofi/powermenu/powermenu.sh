@@ -7,11 +7,11 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`uname -n`
 
 # Options
-shutdown='Shutdown'
-reboot='Reboot'
-lock=' Lock'
-suspend='Suspend'
-logout=' Logout'
+shutdown=󰐥
+reboot=󰑐
+lock=
+suspend=
+logout=󰁔
 yes=' Yes'
 no='No'
 
