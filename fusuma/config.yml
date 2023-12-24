@@ -1,0 +1,32 @@
+swipe:
+  3:
+    left:
+      command: "xdotool key alt+Left" # History forward
+    right:
+      command: "xdotool key alt+Right" # History back
+    up:
+      command: "hyprctl dispacth workspace special" # Activity
+    down:
+      command: "xdotool key super" # Activity
+  4:
+    left:
+      command: "hyprctl dispatch workspace r+1" # Switch to next workspace
+    right:
+      command: "hyprctl dispatch workspace r-1" # Switch to previous workspace
+    up:
+      command: 'xdotool key ctrl+t' # Open new tab
+      keypress:
+        LEFTSHIFT:
+          command: 'xdotool key --clearmodifiers ctrl+shift+t' # Open last closed tab
+    down:
+      command: 'xdotool key ctrl+w' # Close tab
+pinch:
+  in:
+    command: "xdotool keydown ctrl click 4 keyup ctrl" # Zoom in
+  out:
+    command: "xdotool keydown ctrl click 5 keyup ctrl" # Zoom out
+hold:
+  4:
+    command: "xdotool key super" # Activity
+
+    swipe:
